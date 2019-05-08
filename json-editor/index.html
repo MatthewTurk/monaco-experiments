@@ -16,14 +16,25 @@
 <script src="../node_modules/monaco-editor/min/vs/editor/editor.main.js"></script>
 
 <script>
-	var editor = monaco.editor.create(document.getElementById('container'), {
-		value: [
-			'function x() {',
-			'\tconsole.log("Hello world!");',
-			'}'
-		].join('\n'),
-		language: 'javascript'
-	});
+var jsonCode = [
+    '{',
+    '    "p1": "v3",',
+    '    "p2": false',
+    "}"
+].join('\n');
+var modelUri = monaco.Uri.parse("a://b/foo.json"); // a made up unique URI for our model
+var model = monaco.editor.createModel(jsonCode, "json", modelUri);
+
+monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
+    validate: true,
+    enableSchemaRequest: true,
+    schemas: []
+});
+
+var editor = monaco.editor.create(document.getElementById("container"), {
+    model:model
+});
+
 </script>
 
 </body>
