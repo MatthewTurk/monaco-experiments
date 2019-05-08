@@ -1,0 +1,15 @@
+{
+  "name": "monaco-experiments",
+  "version": "0.0.1",
+  "description": "Experiments with monaco editing",
+  "main": "index.js",
+  "scripts": {
+    "simpleserver": "node_modules/.bin/http-server -c-1 ./ -p 8888"
+  },
+  "author": "Microsoft Corporation",
+  "license": "MIT",
+  "dependencies": {
+    "http-server": "^0.11.1",
+    "monaco-editor": "0.17.0"
+  }
+}
